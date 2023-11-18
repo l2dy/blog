@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang='en' dir='auto'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Introduction Most companies would ask employees to use their company email addresses in internal Git repositories. But many of us are not comfortable with using the company email in personal contributions to open source projects. Meanwhile, for people who have become a committer in several open source organizations and were assigned email addresses specific to them, if they prefer attributing contributions to the corresponding organization email addresses, they have to set separate git config in each repository, or else the email used will be the global default.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Path-Aware Git Config • Zero&#39;s Shelter'>
+<meta property='og:description' content='Introduction Most companies would ask employees to use their company email addresses in internal Git repositories. But many of us are not comfortable with using the company email in personal contributions to open source projects. Meanwhile, for people who have become a committer in several open source organizations and were assigned email addresses specific to them, if they prefer attributing contributions to the corresponding organization email addresses, they have to set separate git config in each repository, or else the email used will be the global default.'>
+<meta property='og:url' content='https://l2dy.github.io/posts/2019/path-aware-git-config/'>
+<meta property='og:site_name' content='Zero&#39;s Shelter'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='git'><meta property='article:published_time' content='2019-11-05T14:53:40Z'/><meta property='article:modified_time' content='2019-11-05T14:53:40Z'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.120.4">
+
+  <title>Path-Aware Git Config • Zero&#39;s Shelter</title>
+  <link rel='canonical' href='https://l2dy.github.io/posts/2019/path-aware-git-config/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-posts has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Zero&#39;s Shelter
+      </a>
+    </h2>
+    <div class='desc'>
+    Personal Blog
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-search sep-after'>
+  <header>
+    <h4 class='title widget-title'>Search</h4>
+  </header>
+
+  <form action='/search' id='search-form' class='search-form'>
+    <label>
+      <span class='screen-reader-text'>Search</span>
+      <input id='search-term' class='search-term' type='search' name='q' placeholder='Search&hellip;'>
+    </label></form>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/clt/' style='font-size:1em'>clt</a>
+      </li><li>
+        <a href='/tags/debian/' style='font-size:1em'>debian</a>
+      </li><li>
+        <a href='/tags/git/' style='font-size:1em'>git</a>
+      </li><li>
+        <a href='/tags/macports/' style='font-size:2em'>macports</a>
+      </li><li>
+        <a href='/tags/zfs/' style='font-size:1em'>zfs</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg
+  class="icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewbox="0 0 24 24"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+><line x1="3" y1="12" x2="21" y2="12" />
+<line x1="3" y1="6" x2="21" y2="6" />
+<line x1="3" y1="18" x2="21" y2="18" />
+</svg>
+</span>
+  <span class='close'><svg
+  class="icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewbox="0 0 24 24"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+><line x1="18" y1="6" x2="6" y2="18" />
+<line x1="6" y1="6" x2="18" y2="18" />
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='https://github.com/l2dy'>Me</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Zero&#39;s Shelter</a></li><li><a href='/posts/'>Posts</a></li><li><span>Path-Aware Git Config</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Zero&#39;s Shelter</p><p class='desc site-desc'>Personal Blog</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Path-Aware Git Config</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg
+  class="icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewbox="0 0 24 24"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+><rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+<line x1="16" y1="2" x2="16" y2="6" />
+<line x1="8" y1="2" x2="8" y2="6" />
+<line x1="3" y1="10" x2="21" y2="10" />
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2019-11-05T14:53:40Z'>2019, Nov 05</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg
+  class="icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewbox="0 0 24 24"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+><circle cx="12" cy="12" r="10" />
+<polyline points="12 6 12 12 15 15" />
+</svg>
+2 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  <h2 id="introduction">Introduction</h2>
+<p>Most companies would ask employees to use their company email addresses in internal Git repositories. But many of us are not comfortable with using the company email in personal contributions to open source projects. Meanwhile, for people who have become a committer in several open source organizations and were assigned email addresses specific to them, if they prefer attributing contributions to the corresponding organization email addresses, they have to set separate git config in each repository, or else the email used will be the global default.</p>
+<p>However, Git 2.13 introduced <a href="https://github.blog/2017-05-10-git-2-13-has-been-released/#conditional-configuration">conditional configuration includes</a>. Combined with the <code>gitdir:</code> keyword, it&rsquo;s possible to import Git configuration from different files for repositories under different paths.</p>
+<h2 id="configuration">Configuration</h2>
+<p>First, upgrade your Git if it&rsquo;s below version 2.13! Next, create a new file with organization-specific settings like <code>user.email</code>. Last, add the <code>[includeIf]</code> sections to your <code>~/.gitconfig</code>. Remember to try it out by cloning a new repository under the gitdir path and make a new commit!</p>
+<pre tabindex="0"><code>$ tail -n5 ~/.gitconfig
+[user]
+  name = Zero King
+  email = l2dy@example.com
+[includeIf &#34;gitdir:~/Repos/work/&#34;]
+  path = .gitconfig-work
+$ cat ~/.gitconfig-work
+[user]
+  email = hidden@work.o
+</code></pre><h2 id="nerd-facts">Nerd Facts</h2>
+<p>Man pages FTW!</p>
+<ul>
+<li>Actually I have added <code>**</code> at the end of each gitdir condition in my config, but there&rsquo;s no difference if the pattern ends with <code>/</code>.</li>
+<li>Included files are searched relative to the including file, so an absolute path like <code>~/</code> before the path is not required if they are in the same directory.</li>
+</ul>
+<pre tabindex="0"><code>   Conditional includes
+       You can include a config file from another conditionally by setting a
+       includeIf.&lt;condition&gt;.path variable to the name of the file to be
+       included.
+
+       The condition starts with a keyword followed by a colon and some data
+       whose format and meaning depends on the keyword. Supported keywords
+       are:
+
+       gitdir
+	   The data that follows the keyword gitdir: is used as a glob
+	   pattern. If the location of the .git directory matches the pattern,
+	   the include condition is met.
+
+...
+
+	   o   If the pattern ends with /, ** will be automatically added. For
+	       example, the pattern foo/ becomes foo/**. In other words, it
+	       matches &#34;foo&#34; and everything inside, recursively.
+
+...
+
+   Example
+	   ; relative paths are always relative to the including
+	   ; file (if the condition is true); their location is not
+	   ; affected by the condition
+	   [includeIf &#34;gitdir:/path/to/group/&#34;]
+		   path = foo.inc
+</code></pre>
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg
+  class="icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewbox="0 0 24 24"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+><path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z" />
+<line x1="7" y1="7" x2="7" y2="7" />
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/git/'>git</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/2019/the-missing-dot-sdk/'>
+        <span aria-hidden='true'><svg
+  class="icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewbox="0 0 24 24"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+><line x1="20" y1="12" x2="4" y2="12" />
+<polyline points="10 18 4 12 10 6" />
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>The Missing MacOSX10.14.sdk</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/posts/2019/recover-skipped-phases/'>
+        <span class='screen-reader-text'>Next post: </span>Recover Skipped Phases in a Portfile<span aria-hidden='true'>Next <svg
+  class="icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewbox="0 0 24 24"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+><line x1="4" y1="12" x2="20" y2="12" />
+<polyline points="14 6 20 12 14 18" />
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/l2dy' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg
+  class="icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewbox="0 0 24 24"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2019-2023 l2dy </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.c3bcf2df.js'></script>
+
+</body>
+
+</html>
+
