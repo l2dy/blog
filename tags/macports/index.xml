@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>macports on Zero&#39;s Shelter</title>
-    <link>https://l2dy.github.io/tags/macports/</link>
+    <link>https://l2dy.github.io/blog/tags/macports/</link>
     <description>Recent content in macports on Zero&#39;s Shelter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 06 Nov 2019 16:01:00 +0000</lastBuildDate>
-    <atom:link href="https://l2dy.github.io/tags/macports/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://l2dy.github.io/blog/tags/macports/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Recover Skipped Phases in a Portfile</title>
-      <link>https://l2dy.github.io/posts/2019/recover-skipped-phases/</link>
+      <link>https://l2dy.github.io/blog/posts/2019/recover-skipped-phases/</link>
       <pubDate>Wed, 06 Nov 2019 16:01:00 +0000</pubDate>
-      <guid>https://l2dy.github.io/posts/2019/recover-skipped-phases/</guid>
+      <guid>https://l2dy.github.io/blog/posts/2019/recover-skipped-phases/</guid>
       <description>Introduction The ruby-1.0 PortGroup has a special fetch mode that allows us to customize the build while handling subports and the ${ruby.suffix} variable itself. For example:
 PortGroup ruby 1.0 ruby.branches 2.6 2.5 2.4 ruby.setup ronn-ng 0.8.2 fetch However, the fetch mode (called type in the PortGroup) clears the build phase. So how could we make MacPorts run build.cmd while using this PortGroup?
 fetch { # do nothing but fetch and extract - for strange installers build {} } Solution There is a mysterious piece of code in gem mode (same PortGroup).</description>
     </item>
     <item>
       <title>The Missing MacOSX10.14.sdk</title>
-      <link>https://l2dy.github.io/posts/2019/the-missing-dot-sdk/</link>
+      <link>https://l2dy.github.io/blog/posts/2019/the-missing-dot-sdk/</link>
       <pubDate>Mon, 04 Nov 2019 15:16:40 +0000</pubDate>
-      <guid>https://l2dy.github.io/posts/2019/the-missing-dot-sdk/</guid>
+      <guid>https://l2dy.github.io/blog/posts/2019/the-missing-dot-sdk/</guid>
       <description>Introduction Some ports in MacPorts would bake the platform SDK paths into build flags used to build dependent ports. For example, the ruby24 port remembers its build flags in the rbconfig.rb file, and uses these flags to build gems with native C extensions.
 # /opt/local/lib/ruby2.4/2.4.0/x86_64-darwin18/rbconfig.rb CONFIG[&amp;#34;CPPFLAGS&amp;#34;] = &amp;#34;-I/opt/local/include -isysroot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -I/opt/local/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)&amp;#34; CONFIG[&amp;#34;LDFLAGS&amp;#34;] = &amp;#34;-L. -L/opt/local/lib -Wl,-headerpad_max_install_names -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -fstack-protector -L/opt/local/lib&amp;#34; CONFIG[&amp;#34;CFLAGS&amp;#34;] = &amp;#34;-pipe -Os -isysroot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -fno-common&amp;#34; So when macOS Mojave users upgrade to Xcode 11, which only provides MacOSX10.</description>
     </item>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on Zero&#39;s Shelter</title>
-    <link>https://l2dy.github.io/tags/git/</link>
+    <link>https://l2dy.github.io/blog/tags/git/</link>
     <description>Recent content in git on Zero&#39;s Shelter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 05 Nov 2019 14:53:40 +0000</lastBuildDate>
-    <atom:link href="https://l2dy.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://l2dy.github.io/blog/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Path-Aware Git Config</title>
-      <link>https://l2dy.github.io/posts/2019/path-aware-git-config/</link>
+      <link>https://l2dy.github.io/blog/posts/2019/path-aware-git-config/</link>
       <pubDate>Tue, 05 Nov 2019 14:53:40 +0000</pubDate>
-      <guid>https://l2dy.github.io/posts/2019/path-aware-git-config/</guid>
+      <guid>https://l2dy.github.io/blog/posts/2019/path-aware-git-config/</guid>
       <description>Introduction Most companies would ask employees to use their company email addresses in internal Git repositories. But many of us are not comfortable with using the company email in personal contributions to open source projects. Meanwhile, for people who have become a committer in several open source organizations and were assigned email addresses specific to them, if they prefer attributing contributions to the corresponding organization email addresses, they have to set separate git config in each repository, or else the email used will be the global default.</description>
     </item>
   </channel>

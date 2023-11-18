@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>debian on Zero&#39;s Shelter</title>
-    <link>https://l2dy.github.io/tags/debian/</link>
+    <link>https://l2dy.github.io/blog/tags/debian/</link>
     <description>Recent content in debian on Zero&#39;s Shelter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 03 Nov 2019 09:04:00 +0000</lastBuildDate>
-    <atom:link href="https://l2dy.github.io/tags/debian/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://l2dy.github.io/blog/tags/debian/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ZFS Autostart on Debian 10</title>
-      <link>https://l2dy.github.io/posts/2019/zfs-autostart-on-debian-10/</link>
+      <link>https://l2dy.github.io/blog/posts/2019/zfs-autostart-on-debian-10/</link>
       <pubDate>Sun, 03 Nov 2019 09:04:00 +0000</pubDate>
-      <guid>https://l2dy.github.io/posts/2019/zfs-autostart-on-debian-10/</guid>
+      <guid>https://l2dy.github.io/blog/posts/2019/zfs-autostart-on-debian-10/</guid>
       <description>Background A pastebin service could save a lot of disk space with file compression. Mojopaste doesn&amp;rsquo;t natively support file compression, so FS-level file compression is easier to set up.
 VDO, ZFS and Btrfs all support transparent file compression. I picked ZFS because it&amp;rsquo;s the most mature one among them.
 Problems Installing zfs-dkms on Debian didn&amp;rsquo;t succeed at first. I had to manually run /sbin/modprobe zfs to continue the installation. The zfs module does not automatically load after reboot, and zfs services fails to start.</description>
