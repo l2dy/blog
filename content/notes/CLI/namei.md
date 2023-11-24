@@ -1,0 +1,1 @@
+`namei -om` displays permissions follows each pathname and prints their modes and owners.

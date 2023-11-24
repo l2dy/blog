@@ -1,0 +1,1 @@
+Run `dhall-freeze` as early as possible, because `dhall-mode` re-evaluates the buffer on each change.

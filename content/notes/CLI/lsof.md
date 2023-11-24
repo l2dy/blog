@@ -1,0 +1,1 @@
+List open files and sockets. On FreeBSD, use [[notes/CLI/procstat|procstat]] instead.

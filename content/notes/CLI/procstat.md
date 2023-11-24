@@ -1,0 +1,1 @@
+On [[FreeBSD Map|FreeBSD Map]], use `procstat -f <PID>` to list open files and sockets.

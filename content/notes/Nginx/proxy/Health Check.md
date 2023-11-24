@@ -1,0 +1,1 @@
+If Nginx upstream points at a load balancer and overloading is not of concern, you can set `max_fails` to `0` to disable passive health checks.

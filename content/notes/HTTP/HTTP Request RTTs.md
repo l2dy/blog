@@ -1,0 +1,5 @@
+- Phase 1: DNS Lookup
+- Phase 2: TCP Handshake (1 RTT)
+- Phase 3: TLS Handshake (1 RTT if TLS 1.3)
+    - 2 round trips if TLS version < 1.3
+- Phase 4: HTTP (1 RTT + server-side latency)
