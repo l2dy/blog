@@ -13,9 +13,7 @@
       <link>https://l2dy.github.io/blog/posts/2019/zfs-autostart-on-debian-10/</link>
       <pubDate>Sun, 03 Nov 2019 09:04:00 +0000</pubDate>
       <guid>https://l2dy.github.io/blog/posts/2019/zfs-autostart-on-debian-10/</guid>
-      <description>Background A pastebin service could save a lot of disk space with file compression. Mojopaste doesn&amp;rsquo;t natively support file compression, so FS-level file compression is easier to set up.
-VDO, ZFS and Btrfs all support transparent file compression. I picked ZFS because it&amp;rsquo;s the most mature one among them.
-Problems Installing zfs-dkms on Debian didn&amp;rsquo;t succeed at first. I had to manually run /sbin/modprobe zfs to continue the installation. The zfs module does not automatically load after reboot, and zfs services fails to start.</description>
+      <description>Background A pastebin service could save a lot of disk space with file compression. Mojopaste doesn&amp;rsquo;t natively support file compression, so FS-level file compression is easier to set up.&#xA;VDO, ZFS and Btrfs all support transparent file compression. I picked ZFS because it&amp;rsquo;s the most mature one among them.&#xA;Problems Installing zfs-dkms on Debian didn&amp;rsquo;t succeed at first. I had to manually run /sbin/modprobe zfs to continue the installation. The zfs module does not automatically load after reboot, and zfs services fails to start.</description>
     </item>
   </channel>
 </rss>
